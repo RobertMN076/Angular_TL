@@ -1,0 +1,39 @@
+<div class="container col-md-2 col-lg-1">
+    <div class="card">
+        <div class="card-body">
+            <div class="dropdown">
+                <button class="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false" (mouseenter)="toggleButtonColor(true)" (mouseout)="toggleButtonColor(false)" [style.background]="buttonColors">
+                    Armas
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" (click)="selecionarCategoria('Espada/Escudo')">Espada/Escudo</a></li>
+                    <li><a class="dropdown-item" (click)="selecionarCategoria('Arco')">Arco</a></li>
+                    <li><a class="dropdown-item" (click)="selecionarCategoria('Espadão')">Espadão</a></li>
+                    <li><a class="dropdown-item" (click)="selecionarCategoria('Cajado')">Cajado</a></li>
+                    <li><a class="dropdown-item" (click)="selecionarCategoria('Varinha')">Varinha</a></li>
+                    <li><a class="dropdown-item" (click)="selecionarCategoria('Balestra')">Balestra</a></li>
+                    <li><a class="dropdown-item" (click)="selecionarCategoria('Lança')">Lança</a></li>
+                    <li><a class="dropdown-item" (click)="selecionarCategoria('Adaga')">Adaga</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<div class="container col-md-8">
+    <div *ngFor="let item of itensFiltrados" class="card card-itens">
+        <div class="card-body">
+            <img class="imagem" src="{{item.src}}" alt="{{item.nome}}" style="height: 100px; height: 100px;"
+                [style.background-color]="tierColor[item.tier]">
+            <br>
+            <br>
+            <h5 class="card-title text-light">{{item.nome}}</h5>
+            <h6 class="card-subtitle mb-2 text-light">Atributos: {{item.atributos}}</h6>
+            <h6 class="card-subtitle mb-2 text-light">{{item.passiva}}</h6>
+            <p class="card-text text-light">Esse item pode gerar as seguintes características: {{item.caracteristicas}}
+            </p>
+        </div>
+    </div>
+</div>
